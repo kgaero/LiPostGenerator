@@ -1,0 +1,2 @@
+# LiPostGenerator
+Generates Post
