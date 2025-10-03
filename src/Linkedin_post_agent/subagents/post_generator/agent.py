@@ -49,6 +49,12 @@ initial_post_generator = LlmAgent(
     ## OUTPUT INSTRUCTIONS
     - Return ONLY the post content
     - Do not add formatting markers or explanations
+
+    ## Additional context about the user. Incorporate these in the post:
+    Name:
+    {user_name}
+    Preferences:
+    {user_preference}
     """,
     output_key= 'current_post',
 )
