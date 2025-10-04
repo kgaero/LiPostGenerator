@@ -10,6 +10,8 @@ from .tools import count_characters, exit_loop
 from .callbacks import before_tool_callback, after_tool_callback
 from .callbacks import before_model_callback, after_model_callback
 from .callbacks import before_agent_callback, after_agent_callback
+from google.adk.tools import FunctionTool
+
 
 GEMINI_MODEL = "gemini-2.0-flash"
 
@@ -57,6 +59,7 @@ post_reviewer = LlmAgent(
      """,
      model =GEMINI_MODEL,
      tools =[count_characters, exit_loop],
+   #   tools =[count_characters, FunctionTool(exit_loop, require_confirmation = True)],
      output_key = "review_feedback",
      before_agent_callback=before_agent_callback,
      after_agent_callback=after_agent_callback,
