@@ -26,5 +26,5 @@ refinement_loop = LoopAgent(
 root_agent = SequentialAgent(
     name = "LinkedInPostGeneratorPipeline",
     sub_agents = [initial_post_generator, refinement_loop],
-    description = "Generates and refines a LinkedIn post through an Iterator review process"
+    description = "Generates and refines a LinkedIn post through an Iterator review process",
 )

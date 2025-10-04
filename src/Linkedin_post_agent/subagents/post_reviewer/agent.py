@@ -7,6 +7,9 @@ This agent reviews LinkedIn posts for quality and provides feedback
 
 from google.adk.agents import LlmAgent, llm_agent
 from .tools import count_characters, exit_loop
+from .callbacks import before_tool_callback, after_tool_callback
+from .callbacks import before_model_callback, after_model_callback
+from .callbacks import before_agent_callback, after_agent_callback
 
 GEMINI_MODEL = "gemini-2.0-flash"
 
@@ -55,4 +58,10 @@ post_reviewer = LlmAgent(
      model =GEMINI_MODEL,
      tools =[count_characters, exit_loop],
      output_key = "review_feedback",
+     before_agent_callback=before_agent_callback,
+     after_agent_callback=after_agent_callback,
+     before_model_callback=before_model_callback,
+     after_model_callback=after_model_callback,
+     before_tool_callback=before_tool_callback,
+     after_tool_callback=after_tool_callback,
 )
